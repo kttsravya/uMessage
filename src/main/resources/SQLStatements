@@ -1,0 +1,40 @@
+CREATE SCHEMA `springproject` ;
+
+
+
+CREATE TABLE `spriproje`.`profiles` (
+  `id` INT NOT NULL,
+  `profileName` VARCHAR(45) NOT NULL,
+  `firstName` VARCHAR(45) NOT NULL,
+  `lastName` VARCHAR(45) NOT NULL,
+  `created` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`, `profileName`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `profileName_UNIQUE` (`profileName` ASC));
+  
+INSERT INTO `springproject`.`profiles` (`id`, `profileName`, `firstName`, `lastName`) VALUES ('1', 'sravyasravs', 'lakshmi', 'katta');
+INSERT INTO `springproject`.`profiles` (`id`, `profileName`, `firstName`, `lastName`) VALUES ('2', 'vineelvinni', 'vineel', 'pullipudi');
+  
+  
+
+
+CREATE TABLE `springproject`.`messages` (
+  `id` INT NOT NULL,
+  `profileId` INT NOT NULL,
+  `messageId` INT NOT NULL,
+  `message` VARCHAR(45) NOT NULL,
+  `author` VARCHAR(45) NOT NULL,
+  `created` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `profileId_idx` (`profileId` ASC),
+  CONSTRAINT `profileId`
+    FOREIGN KEY (`profileId`)
+    REFERENCES `springproject`.`profiles` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+    
+INSERT INTO `springproject`.`messages` (`profileId`, `messageId`, `message`, `author`) VALUES ('1', '1', 'hello vinni', 'srav');
+
+
+

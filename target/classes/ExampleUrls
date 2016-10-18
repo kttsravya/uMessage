@@ -1,0 +1,13 @@
+Use the following URL to retrieve all profiles from profiles table   (use GET && Content-Type →application/json)
+
+http://localhost:8080/springproject/webservices/profiles
+
+
+Use the following URL to post profile data with content(use POST && content-type application/json or application/xml)
+ {
+    "id": 98,
+    "profileName": "sravyasr",
+    "firstName": "lakshmi",
+    "lastName": "katta"
+}
+http://localhost:8080/springproject/webservices/profiles
